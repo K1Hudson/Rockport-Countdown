@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown to July 17, 9AM CT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      margin: 0;
+      background: url('specsnreds.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    #countdown {
+      font-size: 2em;
+      margin-bottom: 50px;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    #destination {
+      font-size: 3.5em;
+      font-weight: bold;
+      margin-top: 100px;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: inline-block;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    h1 {
+      background-color: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Countdown to July 17, 2025 – 9:00 AM CT</h1>
+<div id="countdown">Loading...</div>
+
+<div id="destination">Destination – Rockport, TX</div>
+
+<script>
+  // 9 AM CT = 14:00 UTC on July 17, 2025 (during DST)
+  const targetDate = new Date("2025-07-17T14:00:00Z");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML = "The countdown is over!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("countdown").innerHTML =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
